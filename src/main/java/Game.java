@@ -6,6 +6,12 @@ public class Game {
         if (guessNumber.equals(question)) {
             return new GuessResult(true, 3, 0);
         } else {
+            int strikes = 0;
+            for (int i = 0; i < 3; i++) {
+                if (question.charAt(i) == guessNumber.charAt(i)) strikes++;
+            }
+            if (strikes != 0)
+                return new GuessResult(false, strikes, 0);
             return new GuessResult(false, 0, 0);
         }
     }
