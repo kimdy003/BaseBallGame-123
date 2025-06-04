@@ -14,10 +14,14 @@ public class Game {
             }
         }
 
-        if (guessNumber.charAt(0) == guessNumber.charAt(1)
-                || guessNumber.charAt(0) == guessNumber.charAt(2)
-                || guessNumber.charAt(1) == guessNumber.charAt(2)) {
+        if (isDuplicatedNumber(guessNumber)) {
             throw new IllegalArgumentException();
         }
+    }
+
+    private static boolean isDuplicatedNumber(String guessNumber) {
+        return guessNumber.charAt(0) == guessNumber.charAt(1)
+                || guessNumber.charAt(0) == guessNumber.charAt(2)
+                || guessNumber.charAt(1) == guessNumber.charAt(2);
     }
 }
